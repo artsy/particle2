@@ -1,0 +1,41 @@
+{
+  "name": "particle2",
+  "version": "1.0.0",
+  "description": "React components for articles shared across Positron, Force, and maybe others",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "example": "npm run build && browserify examples/bundle.js && open examples/index.html",
+    "prepublish": "npm run build",
+    "test": "npm run build && mocha -r should"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artsy/particle2.git"
+  },
+  "keywords": [
+    "article",
+    "artsy",
+    "react"
+  ],
+  "authors": [
+    "Eve Essex",
+    "Craig Spaeth"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artsy/particle2/issues"
+  },
+  "homepage": "https://github.com/artsy/particle2#readme",
+  "dependencies": {
+    "react": "^15.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "mocha": "^3.4.2",
+    "react-dom": "^15.6.0",
+    "should": "^11.2.1"
+  }
+}
