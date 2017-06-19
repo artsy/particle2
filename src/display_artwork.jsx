@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class DisplayArtwork extends Component {
-
   formatArtistNames(artwork) {
     if (artwork.artists != null ? artwork.artists[0] : undefined) {
-      let names = artwork.artists.map(artist => artist.name);
-      return names.join(', ');
+      let names = artwork.artists.map(artist => artist.name)
+      return names.join(', ')
     } else {
-      return (artwork.artist != null ? artwork.artist.name : undefined);
+      return (artwork.artist != null ? artwork.artist.name : undefined)
     }
   }
 
@@ -36,31 +35,33 @@ class DisplayArtwork extends Component {
   }
 
   render() {
-    const { artwork } = this.props;
+    const { artwork } = this.props
     return (
       <div className='display-artwork'>
         <img
           src={artwork.image}
           className='display-artwork__image' />
-        <div className='display-artwork__caption' style={styles}>
+        <div className='display-artwork__caption' style={styles.caption}>
           <p><strong>{this.formatArtistNames(artwork)}</strong></p>
-            <p>
-              {this.renderTitle(artwork)}
-              {this.renderSpacer(artwork)}
-              {this.renderDate(artwork)}
-            </p>
+          <p>
+            {this.renderTitle(artwork)}
+            {this.renderSpacer(artwork)}
+            {this.renderDate(artwork)}
+          </p>
           {this.renderPartner(artwork)}
         </div>
       </div>
-    );
+    )
   }
-};
-export default DisplayArtwork;
+}
+export default DisplayArtwork
 
 const styles = {
-  color: '#666',
-  fontSize: 15,
-  lineHeight: 1.25,
-  whiteSpace: 'initial',
-  fontFamily: "'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', 'Times', 'serif'"
+  caption: {
+    color: '#666',
+    fontSize: 15,
+    lineHeight: 1.25,
+    whiteSpace: 'initial',
+    fontFamily: "'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', 'Times', 'serif'"
+  }
 }

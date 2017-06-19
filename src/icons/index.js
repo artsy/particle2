@@ -1,1 +1,1 @@
-export { default as IconImageSet } from './imageset';
+export { default as IconImageSet } from './imageset'

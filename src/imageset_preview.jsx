@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { IconImageSet } from './icons'
 
 class ImagesetPreview extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       visibleImages: this.getVisibleImages(this.props.images)
     }
@@ -15,7 +15,7 @@ class ImagesetPreview extends Component {
     images.map((item, i) => {
       var adjustedWidth = 150 * item.width / item.height
       widths.push(adjustedWidth)
-      var total = widths.reduce((a,b) => a+b, 0)
+      var total = widths.reduce((a, b) => a + b, 0)
       var margins = widths.length * 10
       if ((total + margins + 50) > 560) {
         hidden = hidden + 1
@@ -25,21 +25,21 @@ class ImagesetPreview extends Component {
   }
 
   renderImages(images) {
-    const items = images.slice(0,4).map((item, i) => {
+    const items = images.slice(0, 4).map((item, i) => {
       var src = item.image ? item.image : item.url
-        if (i < this.state.visibleImages) {
-          return <img
-                  key={'imageset-' + i}
-                  src={src || ''}
-                  className='imageset-preview__image'
-                  style={styles.image} />
-        }
-      }, this)
+      if (i < this.state.visibleImages) {
+        return <img
+          key={'imageset-' + i}
+          src={src || ''}
+          className='imageset-preview__image'
+          style={styles.image} />
+      }
+    }, this)
     return items
   }
 
   render() {
-    const { images } = this.props;
+    const { images } = this.props
 
     if (images.length > 9) {
       styles.length.left = 4
@@ -51,23 +51,23 @@ class ImagesetPreview extends Component {
           {this.renderImages(images)}
         </div>
         <div className='imageset-preview__remaining' style={styles.remaining}>
-          <div className='imageset-preview__icon' style={styles.iconContainer} >
+          <div className='imageset-preview__icon' style={styles.icon} >
             <IconImageSet />
             <span className='length' style={styles.length}>{images.length}</span>
           </div>
           <div className='imageset-preview__text'>Enter Slideshow</div>
         </div>
       </div>
-    );
+    )
   }
-};
+}
 
-export default ImagesetPreview;
+export default ImagesetPreview
 
 const styles = {
   imageset: {
     maxWidth: 580,
-    margin: 'auto',
+    width: '100%',
     display: 'flex'
   },
   container: {
@@ -87,13 +87,15 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    textAlign: 'center',
     border: '1px solid #e5e5e5',
     fontSize: 11,
+    lineHeight: 1.33,
     letterSpacing: 1,
     textTransform: 'uppercase',
-    fontFamily: "'ITC Avant Garde Gothic W04', 'AvantGardeGothicITCW01D 731075', 'AvantGardeGothicITCW01Dm', 'Helvetica', 'sans-serif'"
+    fontFamily: '"ITC Avant Garde Gothic W04", "AvantGardeGothicITCW01D 731075", "AvantGardeGothicITCW01Dm", "Helvetica", "sans-serif"'
   },
-  iconContainer: {
+  icon: {
     width: 32,
     marginBottom: 10,
     position: 'relative'
@@ -101,6 +103,6 @@ const styles = {
   length: {
     position: 'absolute',
     left: 8,
-    top: 8
+    top: 13
   }
-};
+}

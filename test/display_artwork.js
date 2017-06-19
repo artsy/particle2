@@ -3,10 +3,10 @@ const ReactDOM = require('react-dom/server')
 const { DisplayArtwork } = require('../')
 
 describe('DisplayArtwork', () => {
-  const component = ReactDOM.renderToString(React.createElement(DisplayArtwork, {
+  var component = ReactDOM.renderToString(React.createElement(DisplayArtwork, {
     artwork: {
       artists: [{name: 'Pablo Picasso'}, {name: 'Maya Lin'}],
-      partner: { name: 'Gagosian Gallery'},
+      partner: {name: 'Gagosian Gallery'},
       image: 'image.jpg',
       date: '1967',
       title: 'A Very Important Artwork'
@@ -38,4 +38,17 @@ describe('DisplayArtwork', () => {
     component.should.containEql('<span class="spacer"')
   })
 
+  var datelessComponent = ReactDOM.renderToString(React.createElement(DisplayArtwork, {
+    artwork: {
+      artists: [{name: 'Pablo Picasso'}, {name: 'Maya Lin'}],
+      partner: {name: 'Gagosian Gallery'},
+      image: 'image.jpg',
+      title: 'A Very Important Artwork'
+    }
+  }))
+
+  it('does not render a spacer if no date', () => {
+    datelessComponent.should.not.containEql('<span class="spacer"')
+    datelessComponent.should.not.containEql('"date"')
+  })
 })

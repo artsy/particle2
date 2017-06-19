@@ -34,9 +34,9 @@
     "babel-cli": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "enzyme": "^2.8.2",
     "mocha": "^3.4.2",
     "react-dom": "^15.6.0",
-    "should": "^11.2.1"
+    "should": "^11.2.1",
+    "standard": "^10.0.2"
   }
 }
