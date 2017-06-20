@@ -1,3 +1,4 @@
 module.exports = {
-  ArtworkImage: require('./lib/artwork_image').default
+  DisplayArtwork: require('./lib/display_artwork').default,
+  ImagesetPreview: require('./lib/imageset_preview').default
 }
